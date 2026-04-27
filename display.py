@@ -1,12 +1,12 @@
 import os
-# ── Utility ────────────────────────────────────────────────────────────────────
+# Utility
 def clear() -> None:
     """Clear the terminal screen (cross-platform)."""
     os.system("cls" if os.name == "nt" else "clear")
 def divider(char: str = "─", width: int = 50) -> None:
     """Print a horizontal divider line."""
     print(char * width)
-# ── Program Banner ─────────────────────────────────────────────────────────────
+# Program Banner
 _BANNER = r"""
 ██████╗  ██████╗  ██████╗██╗  ██╗
 ██╔══██╗██╔═══██╗██╔════╝██║ ██╔╝
@@ -30,7 +30,7 @@ _BANNER = r"""
 def display_banner() -> None:
     """Print the program title ASCII art banner."""
     print(_BANNER)
-# ── Move Art ───────────────────────────────────────────────────────────────────
+# Move Art
 # Each move is stored as a list of lines so they can be printed side-by-side.
 _ROCK_LINES = [
     "    _______    ",
@@ -93,7 +93,7 @@ def display_moves(player_move: str, computer_move: str) -> None:
     for p_line, vs, c_line in zip(player_lines, vs_column, computer_lines):
         print(f"  {p_line}  {vs}  {c_line}")
     print()
-# ── Round Result Banners ───────────────────────────────────────────────────────
+# Round Result Banners
 _WIN_BANNER = r"""
  __  __ ____  _   _  __        _____ _   _
 |  \/  |  _ \| | | | \ \      / /_ _| \ | |
@@ -130,7 +130,7 @@ def display_result(result: str) -> None:
         print(_DRAW_BANNER)
     else:
         print(_LOSS_BANNER)
-# ── Match Summary ──────────────────────────────────────────────────────────────
+# Match Summary 
 _MATCH_WIN_BANNER = r"""
  __  __ _____ ____    __  ____     ____  ___  ____  ____  _____
 |  \/  |  ___/ ___|  / / | __ )   / ___|/ _ \|  _ \|  _ \| ____|
@@ -190,7 +190,7 @@ match_result: 'win', 'draw', or 'loss' (overall match outcome)
     print(f"  Losses : {losses}")
     divider()
     print()
-# ── Running Score ──────────────────────────────────────────────────────────────
+# Running Score
 def display_score(handle: str, wins: int, draws: int,
                   losses: int, rounds_left: int) -> None:
     """
