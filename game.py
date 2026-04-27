@@ -10,7 +10,7 @@ from display import (
     display_match_summary,
 )
  
-# ── Constants ──────────────────────────────────────────────────────────────────
+# Constants
  
 # Valid moves and their display labels
 _MOVES = ["rock", "paper", "scissors"]
@@ -30,7 +30,7 @@ _OUTCOMES = {
 }
  
  
-# ── Public entry point ─────────────────────────────────────────────────────────
+# Public entry point
  
 def play_match(players: dict, player: dict) -> None:
     """
@@ -74,7 +74,7 @@ def play_match(players: dict, player: dict) -> None:
         if round_num < rounds:
             input("  Press Enter for the next round...")
  
-    # ── Match conclusion ───────────────────────────────────────────────────────
+    # Match conclusion
     clear()
  
     if wins > losses:
@@ -107,7 +107,7 @@ def play_match(players: dict, player: dict) -> None:
     input("  Press Enter to return to the menu...")
  
  
-# ── Round execution ────────────────────────────────────────────────────────────
+# Round execution
  
 def play_round() -> str:
     """
@@ -127,7 +127,7 @@ def play_round() -> str:
     return result
  
  
-# ── Input helpers ──────────────────────────────────────────────────────────────
+# Input helpers
  
 def _prompt_round_count() ->    Optional[int]:
     """
@@ -186,7 +186,7 @@ def _prompt_move() -> str:
             print("  Invalid choice. Please enter 1, 2, or 3.")
  
  
-# ── Game logic ─────────────────────────────────────────────────────────────────
+# Game logic
  
 def _determine_outcome(player_move: str, computer_move: str) -> str:
     """
