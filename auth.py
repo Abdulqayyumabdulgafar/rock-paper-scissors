@@ -11,7 +11,7 @@ _GUEST_MAX = 99999
 
 _SPECIAL_CHARS = set("!@#$%^&*()_+-=[]{};':\",./<>?")
 
-# ── Guest ──────────────────────────────────────────────────────────────────────
+#Guest
 
 def generate_guest_username(players: dict) -> str:
     """
@@ -58,7 +58,7 @@ def create_guest(players: dict, guest_username: str) -> dict:
     save_players(players)
     return record
 
-# ── Login ──────────────────────────────────────────────────────────────────────
+#Login
 
 def login(players: dict) -> Optional[dict]:
     """
@@ -104,7 +104,7 @@ def login(players: dict) -> Optional[dict]:
         print(f"\n  Welcome back, {record['Handle']}!")
         return record
 
-# ── Sign Up ────────────────────────────────────────────────────────────────────
+# Sign Up
 
 def signup(players: dict) -> Optional[dict]:
     """
@@ -123,7 +123,7 @@ def signup(players: dict) -> Optional[dict]:
     """
     print("\n── Sign Up ─────────────────────────────")
 
-    # ── Step 1: Username ───────────────────────────────────────────────────────
+    #Step 1: Username
     while True:
         username = input("Choose a username (or 'back' to return): ").strip()
 
@@ -151,7 +151,7 @@ def signup(players: dict) -> Optional[dict]:
 
         break   # username is valid and unique
 
-    # ── Step 2: Handle ─────────────────────────────────────────────────────────
+    #Step 2: Handle
     while True:
         handle = input("Choose a display name (handle): ").strip()
 
@@ -161,7 +161,7 @@ def signup(players: dict) -> Optional[dict]:
 
         break
 
-    # ── Step 3: Password ───────────────────────────────────────────────────────
+    # Step 3: Password
     while True:
         password = input("Choose a password: ").strip()
 
@@ -175,7 +175,7 @@ def signup(players: dict) -> Optional[dict]:
 
         break   # password passed all checks
 
-    # ── Create and persist the new record ──────────────────────────────────────
+    # Create and persist the new record
     record = create_player_record(username, handle, password)
     players[username] = record
     save_players(players)
@@ -183,7 +183,7 @@ def signup(players: dict) -> Optional[dict]:
     print(f"\n  Account created! Welcome, {handle}!")
     return record
 
-# ── Password Validation ────────────────────────────────────────────────────────
+# Password Validation 
 
 def validate_password(password: str) -> list[str]:
     """
