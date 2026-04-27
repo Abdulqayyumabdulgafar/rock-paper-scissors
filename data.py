@@ -161,7 +161,7 @@ def create_player_record(username: str, handle: str, password: str) -> dict:
         "Losses per Round": 0.0,
     }
 
-# ── Private helpers ────────────────────────────────────────────────────────────
+# Private helpers
 
 def _initialise_csv() -> None:
     """Create metadata.csv with headers only. Called when the file is absent."""
