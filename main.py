@@ -4,8 +4,8 @@ from game import play_match
 from display import clear, divider, display_banner
  
  
-# ── Main menu ──────────────────────────────────────────────────────────────────
- 
+# Main menu 
+
 _MAIN_MENU = """
   What would you like to do?
     1. Play as Guest
@@ -26,7 +26,7 @@ def main() -> None:
     Entry point. Loads player data, generates the session guest username,
     then runs the main menu loop until the user quits.
     """
-    # ── Startup ────────────────────────────────────────────────────────────────
+    # Startup
     players = load_players()
  
     # Generate the guest username once for the entire program run.
@@ -39,7 +39,7 @@ def main() -> None:
     display_banner()
     print("  Welcome to Rock Paper Scissors!\n")
  
-    # ── Main menu loop ─────────────────────────────────────────────────────────
+    # Main menu loop
     while True:
         divider()
         print(_MAIN_MENU, end="")
@@ -47,7 +47,7 @@ def main() -> None:
  
         choice = input("  Enter 1, 2, 3, or 4: ").strip()
  
-        # ── Guest ──────────────────────────────────────────────────────────────
+        # Guest
         if choice == "1":
             # Reuse the same guest account for the entire session
             if guest_record is None:
@@ -56,7 +56,7 @@ def main() -> None:
             clear()
             _game_menu_loop(players, guest_record)
  
-        # ── Login ──────────────────────────────────────────────────────────────
+        # Login
         elif choice == "2":
             clear()
             player = login(players)
@@ -65,7 +65,7 @@ def main() -> None:
                 clear()
                 _game_menu_loop(players, player)
  
-        # ── Sign Up ────────────────────────────────────────────────────────────
+        # Sign Up
         elif choice == "3":
             clear()
             player = signup(players)
@@ -74,18 +74,18 @@ def main() -> None:
                 clear()
                 _game_menu_loop(players, player)
  
-        # ── Quit ───────────────────────────────────────────────────────────────
+        # Quit
         elif choice == "4":
             clear()
             print("\n  Thanks for playing. See you next time!\n")
             break
  
-        # ── Invalid input ──────────────────────────────────────────────────────
+        # Invalid input
         else:
             print("\n  Invalid choice. Please enter 1, 2, 3, or 4.\n")
  
  
-# ── Game menu (post-authentication) ───────────────────────────────────────────
+# Game menu (post-authentication)
  
 def _game_menu_loop(players: dict, player: dict) -> None:
     """
@@ -117,7 +117,7 @@ def _game_menu_loop(players: dict, player: dict) -> None:
             print("\n  Invalid choice. Please enter 1 or 2.\n")
  
  
-# ── Run ────────────────────────────────────────────────────────────────────────
+# Run
  
 if __name__ == "__main__":
     main()
